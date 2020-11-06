@@ -18,4 +18,8 @@ describe('StringCalc', () => {
         const sum = stringCalc('1,2')
         expect(sum).toBe(3)
     })
+    it('should evaluate "1,2,3" to  "6" ', () => {
+        const sum = stringCalc('1,2,3')
+        expect(sum).toBe(6)
+    })
 })
