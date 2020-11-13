@@ -34,5 +34,13 @@ describe('StringCalc', () => {
         const sum = stringCalc('//;\n1;2;3;4')
         expect(sum).toBe(10)
     })
+    it('should give a exception message for negative numbers ', () => {
+        try {
+            const sum = stringCalc('//;\n1;-2000;3;-3')
+        }
+        catch (e) {
+            expect(e).toBe('negatives not allowed: -2000, -3')
+        }
+    })
 
 })

@@ -4,7 +4,7 @@ function stringCalc(numbers) {
     //Variablen
 
     var parts, number, result;
- 
+    var errText = '';
 
     //Wenn der String leer ist, liefere leer zurück
     if (numbers === '')
@@ -27,9 +27,19 @@ function stringCalc(numbers) {
             // Ignorieren von mehrfach aufeinanderfolgenden Delimitern
             //Der String wird in Zahl konvertiert.
             number = Number(parts[i]);
+            
+            if (parts[i] < 0) {
+                if (errText == '')   // Erste negative Zahl des Fehlerstrings
+                    errText = parts[i];
+                else                // Weitere negative Zahlen
+                    errText += ', ' + parts[i]
+            }
             result += number;
         }
     }
+    if (errText != '')    // Wurden negative Zahlen gefunden?
+        throw ('negatives not allowed: ' + errText)
+
     return result;
 }
 
