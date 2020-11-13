@@ -42,5 +42,8 @@ describe('StringCalc', () => {
             expect(e).toBe('negatives not allowed: -2000, -3')
         }
     })
-
+    it('should ignore numbers > 1000 ', () => {
+        const sum = stringCalc('//;\n1;2000;3;4000')
+        expect(sum).toBe(4)
+    })
 })

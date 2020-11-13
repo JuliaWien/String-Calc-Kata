@@ -27,14 +27,17 @@ function stringCalc(numbers) {
             // Ignorieren von mehrfach aufeinanderfolgenden Delimitern
             //Der String wird in Zahl konvertiert.
             number = Number(parts[i]);
-            
+            //Aufgabe e bei negativen Zahlen soll eine Exception geworfen werden
             if (parts[i] < 0) {
                 if (errText == '')   // Erste negative Zahl des Fehlerstrings
                     errText = parts[i];
                 else                // Weitere negative Zahlen
                     errText += ', ' + parts[i]
             }
-            result += number;
+            //Aufgabe f Zahlen größer 1000 ignorieren 
+            else if (number <= 1000) {  // nur Zahlen<=1000 addieren
+                result += number;
+            }
         }
     }
     if (errText != '')    // Wurden negative Zahlen gefunden?
